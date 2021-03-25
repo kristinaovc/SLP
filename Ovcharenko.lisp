@@ -67,9 +67,12 @@
     )
 
 (defun delete-equals (lst)
+((lambda (f)
     (cond
         ((null lst) nil)
-        (t (cons (car lst) (delete-equals (compare (car lst) (cdr lst)))))
+        (t (cons f (delete-equals (compare f (cdr lst)))))
+        ))
+        (car lst)
         )
     )
 
@@ -107,11 +110,14 @@
     )
 
 (defun первый-совпадающий (x y)
+((lambda (f)
     (cond 
         ((null x) nil)
         ((null y) nil)
-        ((member1 (car x) y) (car x))
+        ((member1 f y) f)
         (t (первый-совпадающий (cdr x) y))
+        ))
+        (car x)
         )
     )
 
@@ -132,10 +138,14 @@
     )
 
 (defun пересечение (x y)
+((lambda (f r)
     (cond
         ((null x) nil)
-        ((member1 (car x) y) (cons (car x) (пересечение (cdr x) y)))
-        (t (пересечение (cdr x) y))
+        ((member1 f y) (cons f (пересечение r y)))
+        (t (пересечение r y))
+        ))
+        (car x)
+        (cdr x)
         )
     )
 
@@ -156,10 +166,14 @@
     )
 
 (defun разность (x y)
+((lambda (f r)
     (cond
         ((null x) nil)
-        ((member1 (car x) y) (разность (cdr x) y))
-        (t (cons (car x) (разность (cdr x) y)))
+        ((member1 f y) (разность r y))
+        (t (cons f (разность r y)))
+        ))
+        (car x)
+        (cdr x)
         )
     )
 
