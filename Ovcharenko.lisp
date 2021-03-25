@@ -5,10 +5,14 @@
 ;Определите функцию, возвращающую последний элемент списка
 
 (defun last-el (lst)
+    ((lambda (f r)
     (cond
         ((null lst) nil)
-        ((null (cdr lst)) (car lst))
-        (t (last-el (cdr lst)))
+        ((null r) f)
+        (t (last-el r))
+        ))
+        (car lst)
+        (cdr lst)
         )
     )
 
@@ -51,11 +55,15 @@
 ;Определите функцию, удаляющую в исходном списке все повторные вхождения элементов.
 
 (defun compare (x lst)
+(( lambda (f r)
     (cond
         ((null lst) nil)
-        ((eq x (car lst)) (compare x (cdr lst)))
-        (t (cons (car lst) (compare x (cdr lst))))
-        )
+        ((eq x f) (compare x r))
+        (t (cons f (compare x r)))
+        ))
+        (car lst)
+        (cdr lst)
+    )
     )
 
 (defun delete-equals (lst)
