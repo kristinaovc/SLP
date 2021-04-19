@@ -10,7 +10,7 @@ ReasonML это язык программирования, который пош
 
 Из-за того что Reason поддерживает JavaScript как цель компиляции , у него есть возможность общаться уже с существующим кодом JavaScript через FFI (foreign function interface).Это дает гарантию того что типы не изменятся, в то время как вы можете ускорить разработку используя известные вам библиотеки. Из-за этого Reason совместим с React.
 
-Присваивание
+## Присваивание
 
 | Тип значения |	Пример |
 | :---: | :---: | 
@@ -18,3 +18,18 @@ ReasonML это язык программирования, который пош
 | Целочисленное значение	|let count = 42; |
 | Аннотация типа при присваивании |	let count: int = 42; |
 
+## Встроенные типы
+
+|Тип|	Пример|
+| :---: | :---: |
+|Int|	let x: int = 10;|
+|Float|	let x: float = 10.0;|
+|Boolean|	let x: bool = false;|
+|String	|let x: string = "ten";|
+|Char|	let x: char = 'c';|
+|Unit|	let x: unit = ();|
+|Option	|let x: option(int) = Some(10);|
+|Tuple|	let x: (int, string) = (10, "ten");|
+|List	|let x: list(int) = [1, 2, 3];|
+|Array|	let x: array(int) = [&#124;1, 2, 3&#124;];|
+|Functions|	let x: (int, int) => int = (a, b) => a + b;|
