@@ -5,9 +5,9 @@ contains x (y:ys) =
     if (x == y) then True
     else contains x ys
 
-firstMatching (x:xs) y = 
+match (x:xs) y = 
     if contains x y then x
-    else firstMatching xs y
+    else match xs y
     
-main = print (firstMatching [1, 2, 6] [4, 5 , 6])
+main = print (match [1, 2, 6] [4, 5 , 6])
 -- 6
